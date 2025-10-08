@@ -5,10 +5,9 @@ import com.cristinagiraldo.pages.AgrgarProductoCarritoPage;
 import com.cristinagiraldo.utils.WebSite;
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.pages.WebElementFacade;
-import net.serenitybdd.core.steps.UIInteractionSteps;
 import org.fluentlenium.core.annotation.Page;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
+
 
 import static net.serenitybdd.core.Serenity.getDriver;
 
@@ -47,6 +46,7 @@ public class SeleccionarCategoriaStep {
         elementoProducto.waitUntilClickable().click();
         agrgarProductoCarritoPage.clickAddToCartButton();
     }
+
 }
 
 

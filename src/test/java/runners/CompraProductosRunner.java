@@ -10,8 +10,8 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/compra.feature",
         glue = "stepDefinitions",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        plugin = "pretty",
-        tags="@ProcesoCompra"
+        plugin = "pretty"
+        //tags="@IntentarComprar","@ModificarProductos","@ProcesoCompra"
 )
 public class CompraProductosRunner {
 }

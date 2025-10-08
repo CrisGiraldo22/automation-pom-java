@@ -10,11 +10,19 @@ import org.openqa.selenium.JavascriptExecutor;
 public class AgrgarProductoCarritoPage extends PageObject {
     @FindBy(xpath = "//button[@name='add-to-cart']")
     WebElementFacade BTN_ADD_TO_CART;
+
+    @FindBy(xpath = "//input[@class='plus']")
+    WebElementFacade BTN_PlUS_VALUE;
+    @FindBy(xpath = "//input[@class='input-text qty text']")
+    WebElementFacade TXT_QUANTITY_FIELD;
     public By getCategoriaSelector(String categoria) {
         return By.xpath(String.format("//li[@id='menu-item-2805']/a[text()='%s']", categoria));
     }
     public By getProductoSelector(String producto) {
         return By.xpath(String.format("//a[@title='%s']", producto));
+    }
+    public By getNombreProductoSelector(String nombreProducto){
+        return By.xpath(String.format("//td[@class='product-name']//a",nombreProducto));
     }
 
 
@@ -27,6 +35,21 @@ public class AgrgarProductoCarritoPage extends PageObject {
     public WebElementFacade getBTN_ADD_TO_CART() {
         return BTN_ADD_TO_CART;
     }
+    public WebElementFacade getBTN_PlUS_VALUE() {
+        return BTN_PlUS_VALUE;
+    }
+    public WebElementFacade getTXT_QUANTITY_FIELD() {
+        return TXT_QUANTITY_FIELD;
+    }
+
+    public void clickPlusButton(String cantidad) {
+        int veces = Integer.parseInt(cantidad);
+        WebElementFacade plusButton = getBTN_PlUS_VALUE().waitUntilClickable();
+        int clicksAdd = veces - 1;
+        for (int i = 0; i < clicksAdd; i++) {
+            plusButton.click();
+        }
+    }
 
 
     public void clickAddToCartButton() {
@@ -38,4 +61,5 @@ public class AgrgarProductoCarritoPage extends PageObject {
         );
         botonCarrito.waitUntilClickable().click();
     }
+
 }
