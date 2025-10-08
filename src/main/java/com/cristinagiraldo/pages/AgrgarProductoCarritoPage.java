@@ -17,6 +17,7 @@ public class AgrgarProductoCarritoPage extends PageObject {
         return By.xpath(String.format("//a[@title='%s']", producto));
     }
 
+
     public WebElementFacade categoria(String categoria) {
         return find(getCategoriaSelector(categoria));
     }
@@ -26,6 +27,8 @@ public class AgrgarProductoCarritoPage extends PageObject {
     public WebElementFacade getBTN_ADD_TO_CART() {
         return BTN_ADD_TO_CART;
     }
+
+
     public void clickAddToCartButton() {
         WebElementFacade botonCarrito = getBTN_ADD_TO_CART().waitUntilVisible();
 
